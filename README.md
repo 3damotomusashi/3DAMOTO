@@ -1,2 +1,0 @@
-# 3DAMOTO
-3DAMOTO Printing 
