@@ -1,14 +1,14 @@
 :root {
-    --primary: #00f0ff;
-    --secondary: #7b2ff7;
-    --dark: #0a0a12;
+    --primary: #FF2800; /* Ferrari Red */
+    --secondary: #1a1a1a;
+    --dark: #000000;
     --light: #ffffff;
 }
 
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #0a0a12, #1a1a2e);
+    background: var(--dark);
     color: var(--light);
     min-height: 100vh;
 }
@@ -26,36 +26,61 @@ body {
     width: 90%;
     top: 0;
     z-index: 100;
-    background: rgba(10, 10, 18, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
 }
 
 .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-3d {
     font-size: 2rem;
     font-weight: bold;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-style: italic;
+    color: var(--primary);
+}
+
+.logo-amoto {
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #888888;
+}
+
+.logo-tagline {
+    font-size: 0.8rem;
+    color: var(--light);
+    margin-top: 0.3rem;
 }
 
 .nav-links a {
     color: var(--light);
     text-decoration: none;
     margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
 }
 
 .cta-button {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: var(--primary);
     padding: 0.8rem 2rem;
     border-radius: 30px;
-    color: var(--dark) !important;
+    color: var(--light) !important;
     font-weight: bold;
+    transition: transform 0.3s ease;
 }
 
 .hero {
     padding: 12rem 5% 6rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero h1 {
@@ -63,22 +88,33 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.highlight {
+    color: var(--primary);
+    font-style: italic;
+}
+
 .gradient-text {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, var(--primary), #ff6b6b);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
 .primary-button {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: var(--primary);
     border: none;
     padding: 1rem 3rem;
     border-radius: 30px;
-    color: var(--dark);
+    color: var(--light);
     font-size: 1.1rem;
     cursor: pointer;
     margin-top: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 40, 0, 0.5);
 }
 
 .feature-section, .how-section, .offerings-section {
@@ -87,7 +123,7 @@ body {
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -95,8 +131,13 @@ body {
 .feature-card {
     background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
 }
 
 .feature-card i {
@@ -115,11 +156,14 @@ body {
 .step {
     text-align: center;
     padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
 }
 
 .step-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--primary);
 }
 
 .offerings-grid {
@@ -132,13 +176,82 @@ body {
 .offering-card {
     background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.offering-card:hover {
+    transform: translateY(-5px);
+}
+
+.offering-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.hero-images {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.car-image {
+    width: 300px;
+    height: 180px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.car-image:hover {
+    transform: scale(1.05);
+}
+
+.car-1 {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://via.placeholder.com/300x180/444444/FFFFFF?text=Ferrari');
+    background-size: cover;
+}
+
+.car-2 {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://via.placeholder.com/300x180/444444/FFFFFF?text=Tesla');
+    background-size: cover;
+}
+
+.car-3 {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://via.placeholder.com/300x180/444444/FFFFFF?text=Lamborghini');
+    background-size: cover;
+}
+
+.bumper-1 {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://via.placeholder.com/300x200/444444/FFFFFF?text=Custom+Bumper+1');
+}
+
+.bumper-2 {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://via.placeholder.com/300x200/444444/FFFFFF?text=Custom+Bumper+2');
+}
+
+.bumper-3 {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://via.placeholder.com/300x200/444444/FFFFFF?text=Custom+Bumper+3');
 }
 
 footer {
     padding: 2rem 5%;
     text-align: center;
     margin-top: 5rem;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -148,5 +261,14 @@ footer {
     
     .nav-links {
         display: none;
+    }
+    
+    .car-image {
+        width: 80%;
+    }
+    
+    .hero-images {
+        flex-direction: column;
+        align-items: center;
     }
 }
